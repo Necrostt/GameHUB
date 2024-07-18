@@ -44,7 +44,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="BpA-kD-TGn" kind="presentation" modalPresentationStyle="fullScreen" id="UYf-I0-md7"/>
+                                    <segue destination="BpA-kD-TGn" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="UYf-I0-md7"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -68,10 +68,10 @@
             </objects>
             <point key="canvasLocation" x="36" y="4"/>
         </scene>
-        <!--settingsView-->
+        <!--settingsViewController-->
         <scene sceneID="NWX-T7-DDB">
             <objects>
-                <viewController title="settingsView" id="BpA-kD-TGn" sceneMemberID="viewController">
+                <viewController title="settingsViewController" id="BpA-kD-TGn" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hA1-Ig-Uf1">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -182,14 +182,14 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cHf-EA-7j8">
-                                <rect key="frame" x="20" y="670" width="353" height="100"/>
+                                <rect key="frame" x="20" y="670" width="353" height="80"/>
                                 <color key="backgroundColor" name="ButtonRed"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="1zn-Pi-bdB"/>
+                                    <constraint firstAttribute="height" constant="80" id="1zn-Pi-bdB"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Jogar">
-                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="60"/>
+                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="50"/>
                                     <color key="baseForegroundColor" systemColor="systemBackgroundColor"/>
                                 </buttonConfiguration>
                                 <userDefinedRuntimeAttributes>
@@ -197,6 +197,9 @@
                                         <integer key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="QKN-1i-Xdx" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="CFG-dO-LgU"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ENB-oS-zoO"/>
@@ -235,11 +238,125 @@
             </objects>
             <point key="canvasLocation" x="925.95419847328242" y="3.5211267605633805"/>
         </scene>
+        <!--gameViewCotroller-->
+        <scene sceneID="0cE-i7-WmT">
+            <objects>
+                <viewController title="gameViewCotroller" id="QKN-1i-Xdx" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nbe-rT-vMJ">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="verde" translatesAutoresizingMaskIntoConstraints="NO" id="qkQ-r3-6yC">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cPc-Sk-mIR" userLabel="RedView">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="100"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jogador XX" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RjL-xg-ibI">
+                                        <rect key="frame" x="0.0" y="55" width="393" height="30"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="aEF-G7-6BE"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                        <color key="textColor" name="ButtonRed"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="RjL-xg-ibI" secondAttribute="bottom" constant="15" id="AZl-m4-0FA"/>
+                                    <constraint firstItem="RjL-xg-ibI" firstAttribute="leading" secondItem="cPc-Sk-mIR" secondAttribute="leading" id="Q2S-7K-bdm"/>
+                                    <constraint firstAttribute="height" constant="100" id="qpf-bO-oGT"/>
+                                    <constraint firstAttribute="trailing" secondItem="RjL-xg-ibI" secondAttribute="trailing" id="yRE-Hr-Il9"/>
+                                </constraints>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="J81-wj-BWf" userLabel="containerStack">
+                                <rect key="frame" x="20" y="130" width="353" height="550"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="3Lv-eE-95K" userLabel="leftStack">
+                                        <rect key="frame" x="0.0" y="0.0" width="171.66666666666666" height="550"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dado1" translatesAutoresizingMaskIntoConstraints="NO" id="jmf-ei-Hg5" userLabel="leftImageView1">
+                                                <rect key="frame" x="0.0" y="0.0" width="171.66666666666666" height="176.66666666666666"/>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dado3" translatesAutoresizingMaskIntoConstraints="NO" id="SJ2-Qk-Kgi" userLabel="leftImageView2">
+                                                <rect key="frame" x="0.0" y="186.66666666666669" width="171.66666666666666" height="176.66666666666669"/>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dado5" translatesAutoresizingMaskIntoConstraints="NO" id="SlE-pY-qJd" userLabel="leftImageView3">
+                                                <rect key="frame" x="0.0" y="373.33333333333331" width="171.66666666666666" height="176.66666666666669"/>
+                                            </imageView>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Hix-qq-Yra" userLabel="rightStack">
+                                        <rect key="frame" x="181.66666666666663" y="0.0" width="171.33333333333337" height="550"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dado2" translatesAutoresizingMaskIntoConstraints="NO" id="jcq-LG-FV5" userLabel="rightImageView1">
+                                                <rect key="frame" x="0.0" y="0.0" width="171.33333333333334" height="176.66666666666666"/>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dado4" translatesAutoresizingMaskIntoConstraints="NO" id="CRc-ig-djm" userLabel="rightImageView2">
+                                                <rect key="frame" x="0.0" y="186.66666666666669" width="171.33333333333334" height="176.66666666666669"/>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dado6" translatesAutoresizingMaskIntoConstraints="NO" id="v0v-UC-cbx" userLabel="rightImageView3">
+                                                <rect key="frame" x="0.0" y="373.33333333333331" width="171.33333333333334" height="176.66666666666669"/>
+                                            </imageView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="550" id="8Zq-ql-31K"/>
+                                </constraints>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jjw-rP-ARt">
+                                <rect key="frame" x="20" y="710" width="353" height="80"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="F6v-tt-eT6"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Lançar!">
+                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="50"/>
+                                    <color key="baseForegroundColor" name="ButtonRed"/>
+                                </buttonConfiguration>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="dzT-V3-V2i"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="jjw-rP-ARt" firstAttribute="leading" secondItem="dzT-V3-V2i" secondAttribute="leading" constant="20" id="0xR-k8-kGZ"/>
+                            <constraint firstAttribute="trailing" secondItem="qkQ-r3-6yC" secondAttribute="trailing" id="1au-mD-sJF"/>
+                            <constraint firstItem="dzT-V3-V2i" firstAttribute="trailing" secondItem="J81-wj-BWf" secondAttribute="trailing" constant="20" id="1uA-kQ-TYM"/>
+                            <constraint firstItem="qkQ-r3-6yC" firstAttribute="top" secondItem="nbe-rT-vMJ" secondAttribute="top" id="HDE-SK-vNF"/>
+                            <constraint firstItem="cPc-Sk-mIR" firstAttribute="leading" secondItem="nbe-rT-vMJ" secondAttribute="leading" id="Je8-vy-EyU"/>
+                            <constraint firstItem="J81-wj-BWf" firstAttribute="leading" secondItem="dzT-V3-V2i" secondAttribute="leading" constant="20" id="L1c-KX-npi"/>
+                            <constraint firstItem="J81-wj-BWf" firstAttribute="top" secondItem="cPc-Sk-mIR" secondAttribute="bottom" constant="30" id="RxO-sj-mPe"/>
+                            <constraint firstItem="jjw-rP-ARt" firstAttribute="top" secondItem="J81-wj-BWf" secondAttribute="bottom" constant="30" id="Szm-4Q-XIX"/>
+                            <constraint firstItem="cPc-Sk-mIR" firstAttribute="top" secondItem="nbe-rT-vMJ" secondAttribute="top" id="a5t-uD-ebA"/>
+                            <constraint firstItem="qkQ-r3-6yC" firstAttribute="leading" secondItem="nbe-rT-vMJ" secondAttribute="leading" id="iGV-ia-cub"/>
+                            <constraint firstItem="dzT-V3-V2i" firstAttribute="trailing" secondItem="jjw-rP-ARt" secondAttribute="trailing" constant="20" id="u4v-ec-TqW"/>
+                            <constraint firstAttribute="bottom" secondItem="qkQ-r3-6yC" secondAttribute="bottom" id="uHT-lY-i0W"/>
+                            <constraint firstAttribute="trailing" secondItem="cPc-Sk-mIR" secondAttribute="trailing" id="vw0-aB-TaJ"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RI6-CS-kDn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1742.7480916030534" y="3.5211267605633805"/>
+        </scene>
     </scenes>
     <resources>
         <image name="OIG2 1" width="341.33334350585938" height="341.33334350585938"/>
+        <image name="dado1" width="100" height="100"/>
         <image name="dado2" width="100" height="100"/>
+        <image name="dado3" width="100" height="100"/>
         <image name="dado4" width="100" height="100"/>
+        <image name="dado5" width="100" height="100"/>
+        <image name="dado6" width="100" height="100"/>
         <image name="verde" width="626" height="470"/>
         <namedColor name="ButtonRed">
             <color red="0.61539545747422686" green="0.0" blue="0.022591148389863241" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
