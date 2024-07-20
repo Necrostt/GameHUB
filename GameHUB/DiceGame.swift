@@ -1,8 +1,11 @@
-//
-//  DiceGame.swift
-//  GameHUB
-//
-//  Created by Aluno ISTEC on 20/07/2024.
-//
-
 import Foundation
+
+struct DiceGame{
+    
+    
+    func throwDice() -> Int{
+        let throwResult = Int.random(in: 1...6)
+        return throwResult
+    }
+    
+}
