@@ -8,9 +8,18 @@
 import UIKit
 
 class gameViewController: UIViewController {
-
+    
+    var numberOfPlayers: Int = 0
+    var dicesToPlay: Int = 0
+    var roundsToPlay: Int = 0
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(numberOfPlayers)
+        print(dicesToPlay)
+        print(roundsToPlay)
 
         // Do any additional setup after loading the view.
     }
