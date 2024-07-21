@@ -10,6 +10,8 @@ class settingsViewController: UIViewController {
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var settingsButton: UIButton!
     
+    private var diceGameManager = DiceGameManager()
+    
      var _playerNumber: Int = 2
      var _dicesToPlay: Int?
      var _roundsToPlay: Int?
@@ -50,16 +52,11 @@ class settingsViewController: UIViewController {
             playerNumberSelect.showsMenuAsPrimaryAction = true
     }
     
-//    metodo para selecionar configurações por lançamento de dado
-    func diceSelector() -> Int{
-//        cria objeto a partir da struct DiceGame para acesso ao método throwDice
-        let dice = DiceGame()
-        return dice.throwDice()
-    }
+
     
 //    metodo para atualizar a imageView com o dado respectivo ao lançamento
     func updateDiceImageView(this imageView: UIImageView) -> Int{
-        let throwResult = diceSelector()
+        let throwResult = diceGameManager.diceSelector()
         imageView.image = UIImage(named: "dado" + String(throwResult))
         
 //        Retorna o resultado do lançamento do dado para popular os parâmetros do jogo,
