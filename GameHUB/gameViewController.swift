@@ -28,7 +28,7 @@ class gameViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         print("viewWillAppear")
-    
+        setDicesToAppear()
     }
     
 
@@ -42,8 +42,25 @@ class gameViewController: UIViewController {
     }
     */
 
-    func setDiceNumberToAppear(){
-        
+//    metodo controla o numero de ImageViews que aparecem baseado no numero de dados a serem jogados
+    func setDicesToAppear(){
+        switch dicesToPlay {
+        case 0:
+            leftImageStack.isHidden = true
+            rightImageStack.isHidden = true
+        case 2:
+            leftImageStack.isHidden = true
+            rightImageViews[1].isHidden = true
+        case 3:
+            rightImageStack.isHidden = true
+        case 4:
+            rightImageViews[1].isHidden = true
+            leftImageViews[1].isHidden = true
+        case 5:
+            rightImageViews[2].isHidden = true
+        default:
+            return
+        }
     }
     
     
