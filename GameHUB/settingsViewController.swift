@@ -22,11 +22,10 @@ class settingsViewController: UIViewController {
     func onPlayerNumberSelect(){
 //        closure - Define a ação a ser realizada ao selecionar a opção do menu
         let optionClosure = { (action: UIAction) in
-                print("Pop-up action")
 //            armazena a seleção do usuario numa variavel para que a info seja enviada para a próxima ViewController
             self.selectedPlayers = action.title
 //            armazena a seleção do usuario no objeto diceGameManager
-            self.diceGameManager._playerNumber = Int(self.selectedPlayers) ?? 0
+            self.diceGameManager.playerNumber = Int(self.selectedPlayers) ?? 0
         
             }
 //            Popula o menu com as opções desejadas
@@ -59,17 +58,17 @@ class settingsViewController: UIViewController {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let gameViewController = segue.destination as? gameViewController else {return}
-        gameViewController.numberOfPlayers = self.diceGameManager._playerNumber
-        gameViewController.dicesToPlay = self.diceGameManager._dicesToPlay ?? 0
-        gameViewController.roundsToPlay = self.diceGameManager._roundsToPlay ?? 0
+        gameViewController.numberOfPlayers = self.diceGameManager.playerNumber
+        gameViewController.dicesToPlay = self.diceGameManager.dicesToPlay
+        gameViewController.roundsToPlay = self.diceGameManager.roundsToPlay
     }
     
    
     
     @IBAction func defineSettingsBtn(_ sender: UIButton) {
 //        Lança os dados para definir os parâmetros de numero de dados e numero de rounds a serem jogados e atualiza a ImageView com os respetivos dados
-        self.diceGameManager._dicesToPlay =  updateDiceImageView(this: diceNumberImageView)
-        self.diceGameManager._roundsToPlay =  updateDiceImageView(this: roundNumberImageView)
+        self.diceGameManager.dicesToPlay =  updateDiceImageView(this: diceNumberImageView)
+        self.diceGameManager.roundsToPlay =  updateDiceImageView(this: roundNumberImageView)
         
 //        Torna as ImageViews visíveis
         diceNumberImageView.isHidden = false
@@ -80,7 +79,9 @@ class settingsViewController: UIViewController {
 //        guard _playerNumber != 0 else {return}
 //        guard  case _dicesToPlay ,  case _roundsToPlay, _playerNumber != 0 else {return}
         
-        if self.diceGameManager._dicesToPlay != nil, self.diceGameManager._roundsToPlay != nil, self.diceGameManager._roundsToPlay != nil{
+        if self.diceGameManager.dicesToPlay != 0,
+           self.diceGameManager.roundsToPlay != 0,
+           self.diceGameManager.roundsToPlay != 0{
             
             playButton.isHidden = false
             settingsButton.isHidden = true

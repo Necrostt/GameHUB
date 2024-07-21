@@ -2,19 +2,41 @@ import Foundation
 
 struct DiceGameManager {
     
-    var _playerNumber: Int = 2
-    var _dicesToPlay: Int?
-    var _roundsToPlay: Int?
-   var playerNumber: Int {
-       return _playerNumber
-   }
-//    ForceUnwrap usado pois o safeUnwrap foi garantido na linha 88, liberando o acesso ao botão Jogar. variaveis dicesToPlay e roundsToPlay serão usadas apenas no metodo prepare, que  é condicionado ao uso do botao Jogar.
-   fileprivate var dicesToPlay: Int{
-       return _dicesToPlay!
-   }
-   fileprivate var roundsToPlay: Int{
-       return _roundsToPlay!
-   }
+    private var _playerNumber: Int = 2
+    private var _dicesToPlay: Int?
+    private var _roundsToPlay: Int?
+    
+//    variaveis Get e Set para lidar com as variaveis privates, lidando tambem com os unwraps dos optionals
+    var playerNumber: Int {
+        get {
+            return _playerNumber
+        }
+        set (newValue){
+            self._playerNumber = newValue
+        }
+    }
+    
+    var dicesToPlay: Int {
+        get {
+            let tryUnrwap = self._dicesToPlay
+            guard  let tryUnrwap else {return 0}
+            return tryUnrwap
+        }
+        set (newValue) {
+            self._dicesToPlay = newValue
+        }
+    }
+    var roundsToPlay: Int {
+        get {
+            let tryUnrwap = self._roundsToPlay
+            guard  let tryUnrwap else {return 0}
+            return tryUnrwap
+        }
+        set (newValue) {
+            self._roundsToPlay = newValue
+        }
+    }
+    
    
    
     //    metodo para selecionar configurações por lançamento de dado

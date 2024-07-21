@@ -12,25 +12,45 @@ class gameViewController: UIViewController {
     @IBOutlet var rightImageViews: [UIImageView]!
     
     
+    private var diceGameManager = DiceGameManager()
     
     
-    var numberOfPlayers: Int = 0
-    var dicesToPlay: Int = 0
-    var roundsToPlay: Int = 0
+    var numberOfPlayers: Int {
+        get {
+            return self.diceGameManager.playerNumber
+        }
+        set (newValue){
+            self.diceGameManager.playerNumber =  newValue
+        }
+    }
+    var dicesToPlay: Int {
+        get {
+            return self.diceGameManager.dicesToPlay
+        }
+        set (newValue) {
+            self.diceGameManager.dicesToPlay = newValue
+        }
+    }
+    var roundsToPlay: Int {
+        get {
+            return self.diceGameManager.roundsToPlay
+        }
+        set (newValue) {
+            self.diceGameManager.roundsToPlay = newValue
+        }
+    }
+    
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("viewDidLoad")
-       
         
 
-        // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        print("viewWillAppear")
+        
         setDicesToAppear()
     }
     
@@ -47,7 +67,7 @@ class gameViewController: UIViewController {
 
 //    metodo controla o numero de ImageViews que aparecem baseado no numero de dados a serem jogados
     func setDicesToAppear(){
-        switch dicesToPlay {
+        switch diceGameManager.dicesToPlay {
         case 0:
             leftImageStack.isHidden = true
             rightImageStack.isHidden = true
