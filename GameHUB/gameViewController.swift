@@ -13,7 +13,9 @@ class gameViewController: UIViewController {
     
     
     private var diceGameManager = DiceGameManager()
+    
     var playerList: [Int] = []
+    var playerIndex: Int = 0
     
     var numberOfPlayers: Int {
         get {
@@ -46,7 +48,7 @@ class gameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -58,22 +60,22 @@ class gameViewController: UIViewController {
         showRoundsToPlay(roundNumber: diceGameManager.dicesToPlay)
         showPlayerToPlay(playerNumber: diceGameManager.playerNumber)
         createPlayerList()
-       
+        
         
     }
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-//    metodo controla o numero de ImageViews que aparecem baseado no numero de dados a serem jogados
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
+    //    metodo controla o numero de ImageViews que aparecem baseado no numero de dados a serem jogados
     func setDicesToAppear(){
         switch diceGameManager.dicesToPlay {
         case 0:
@@ -98,7 +100,7 @@ class gameViewController: UIViewController {
         }
     }
     
-//    Verifica o estado das imageStackViews, se estiverem hidden, torna-as visiveis
+    //    Verifica o estado das imageStackViews, se estiverem hidden, torna-as visiveis
     func checkStackViewHiddenState(){
         if leftImageStack.isHidden, rightImageStack.isHidden{
             leftImageStack.isHidden = false
@@ -106,44 +108,56 @@ class gameViewController: UIViewController {
         }
     }
     
+    //    oculta as imagestacks
     func hideImageStacks(){
         leftImageStack.isHidden = true
         rightImageStack.isHidden = true
     }
+    //    mostra a rounds label com o numero de rodadas a serem jogadas
     func showRoundsToPlay(roundNumber: Int = 0){
         roundsLabel.text = "Rounds: \(roundNumber)"
     }
     
+    //    mostra a player label com o jogador a jogar no momento
     func showPlayerToPlay(playerNumber: Int = 0){
         playerLabel.text = "Jogador: \(playerNumber)"
     }
-    
+    //    cria uma lista com os jogadores a jogar
     func createPlayerList(){
         for number in 1...diceGameManager.playerNumber{
             playerList.append(number)
         }
     }
     
-    func updateInGameRemainingRounds(){
-        if diceGameManager.roundsToPlay > 0 {
-                   diceGameManager.roundsToPlay -= 1
-                   showRoundsToPlay(roundNumber: diceGameManager.roundsToPlay)
-        } else {
-            return
-        }
+    
+    
+    func updateGameLabels() {
+        let currentPlayer = playerList[playerIndex]
+        showPlayerToPlay(playerNumber: currentPlayer)
+        showRoundsToPlay(roundNumber: diceGameManager.roundsToPlay)
+    }
+    
+    
+    func resetGame() {
+        playerIndex = 0
+        diceGameManager.roundsToPlay = roundsToPlay
+        hideImageStacks()
+        updateGameLabels()
     }
     
     
     @IBAction func throwDiceButton(_ sender: UIButton) {
         
         if diceGameManager.roundsToPlay > 0 {
-                   checkStackViewHiddenState()
-                   setDicesToAppear()
-                   updateInGameRemainingRounds()
+            checkStackViewHiddenState()
+            setDicesToAppear()
+            diceGameManager.roundsToPlay -= 1
+            showRoundsToPlay(roundNumber: diceGameManager.roundsToPlay)
         } else {
-            
-        }
+                performSegue(withIdentifier: "highScoreSegue", sender: nil)
+            }
+        
+        
+        
     }
-    
-    
 }

@@ -366,7 +366,6 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="throwDiceButton:" destination="QKN-1i-Xdx" eventType="touchUpInside" id="J8Y-uA-thS"/>
-                                    <segue destination="8sE-4K-se5" kind="presentation" modalPresentationStyle="fullScreen" id="dxE-4q-maQ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -400,6 +399,7 @@
                         <outletCollection property="rightImageViews" destination="jcq-LG-FV5" collectionClass="NSMutableArray" id="kff-Q9-rwe"/>
                         <outletCollection property="rightImageViews" destination="CRc-ig-djm" collectionClass="NSMutableArray" id="H4O-Ub-ERz"/>
                         <outletCollection property="rightImageViews" destination="v0v-UC-cbx" collectionClass="NSMutableArray" id="JkX-E5-fwu"/>
+                        <segue destination="8sE-4K-se5" kind="presentation" identifier="highScoreSegue" modalPresentationStyle="fullScreen" id="xdk-34-YlF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RI6-CS-kDn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
