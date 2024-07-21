@@ -13,7 +13,7 @@ class gameViewController: UIViewController {
     
     
     private var diceGameManager = DiceGameManager()
-    
+    private var playerList: [Int] = []
     
     var numberOfPlayers: Int {
         get {
@@ -51,7 +51,11 @@ class gameViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         
-        setDicesToAppear()
+        showRoundsToPlay()
+        showPlayerToPlay()
+        hideImageStacks()
+       
+        
     }
     
 
@@ -86,8 +90,31 @@ class gameViewController: UIViewController {
         }
     }
     
+//    Verifica o estado das imageStackViews, se estiverem hidden, torna-as visiveis
+    func checkStackViewHiddenState(){
+        if leftImageStack.isHidden, rightImageStack.isHidden{
+            leftImageStack.isHidden = false
+            rightImageStack.isHidden = false
+        }
+    }
+    
+    func hideImageStacks(){
+        leftImageStack.isHidden = true
+        rightImageStack.isHidden = true
+    }
+    func showRoundsToPlay(){
+        roundsLabel.text = "Rounds: \(diceGameManager.roundsToPlay)"
+    }
+    
+    func showPlayerToPlay(){
+        playerLabel.text = "Jogador: \(diceGameManager.playerNumber)"
+    }
+    
     
     @IBAction func throwDiceButton(_ sender: UIButton) {
+        
+        checkStackViewHiddenState()
+        setDicesToAppear()
     }
     
     

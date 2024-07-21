@@ -73,12 +73,8 @@ class settingsViewController: UIViewController {
 //        Torna as ImageViews visíveis
         diceNumberImageView.isHidden = false
         roundNumberImageView.isHidden = false
-//      torna o botão Jogar visivel apenas se os parâmetros forem definidos
-//        guard case diceGameManager._dicesToPlay else {return}
-//        guard let _roundsToPlay else {return}
-//        guard _playerNumber != 0 else {return}
-//        guard  case _dicesToPlay ,  case _roundsToPlay, _playerNumber != 0 else {return}
         
+//      torna o botão Jogar visivel apenas se os parâmetros forem definidos
         if self.diceGameManager.dicesToPlay != 0,
            self.diceGameManager.roundsToPlay != 0,
            self.diceGameManager.roundsToPlay != 0{
