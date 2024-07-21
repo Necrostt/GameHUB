@@ -16,6 +16,7 @@
 		57636F912C4BB3480064473C /* settingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57636F902C4BB3480064473C /* settingsViewController.swift */; };
 		57636F952C4BDD730064473C /* DiceGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57636F942C4BDD730064473C /* DiceGame.swift */; };
 		57636F972C4BE87F0064473C /* gameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57636F962C4BE87F0064473C /* gameViewController.swift */; };
+		57636F992C4D40E30064473C /* DiceGameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57636F982C4D40E30064473C /* DiceGameManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		57636F902C4BB3480064473C /* settingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settingsViewController.swift; sourceTree = "<group>"; };
 		57636F942C4BDD730064473C /* DiceGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceGame.swift; sourceTree = "<group>"; };
 		57636F962C4BE87F0064473C /* gameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gameViewController.swift; sourceTree = "<group>"; };
+		57636F982C4D40E30064473C /* DiceGameManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceGameManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				575A0D572C49247B009629FB /* SceneDelegate.swift */,
 				575A0D592C49247B009629FB /* ViewController.swift */,
 				57636F902C4BB3480064473C /* settingsViewController.swift */,
+				57636F982C4D40E30064473C /* DiceGameManager.swift */,
 				57636F962C4BE87F0064473C /* gameViewController.swift */,
 				57636F942C4BDD730064473C /* DiceGame.swift */,
 				575A0D5B2C49247B009629FB /* Main.storyboard */,
@@ -149,6 +152,7 @@
 			files = (
 				57636F972C4BE87F0064473C /* gameViewController.swift in Sources */,
 				575A0D5A2C49247B009629FB /* ViewController.swift in Sources */,
+				57636F992C4D40E30064473C /* DiceGameManager.swift in Sources */,
 				575A0D562C49247B009629FB /* AppDelegate.swift in Sources */,
 				57636F952C4BDD730064473C /* DiceGame.swift in Sources */,
 				575A0D582C49247B009629FB /* SceneDelegate.swift in Sources */,
