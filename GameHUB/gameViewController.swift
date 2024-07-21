@@ -1,13 +1,15 @@
-//
-//  gameViewController.swift
-//  GameHUB
-//
-//  Created by Aluno ISTEC on 20/07/2024.
-//
-
 import UIKit
 
 class gameViewController: UIViewController {
+    
+    @IBOutlet weak var leftImageStack: UIStackView!
+    @IBOutlet weak var rightImageStack: UIStackView!
+    
+    @IBOutlet var leftImageViews: [UIImageView]!
+    @IBOutlet var rightImageViews: [UIImageView]!
+    
+    
+    
     
     var numberOfPlayers: Int = 0
     var dicesToPlay: Int = 0
@@ -17,11 +19,16 @@ class gameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(numberOfPlayers)
-        print(dicesToPlay)
-        print(roundsToPlay)
+        print("viewDidLoad")
+       
+        
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        print("viewWillAppear")
+    
     }
     
 
@@ -35,4 +42,13 @@ class gameViewController: UIViewController {
     }
     */
 
+    func setDiceNumberToAppear(){
+        
+    }
+    
+    
+    @IBAction func throwDiceButton(_ sender: UIButton) {
+    }
+    
+    
 }

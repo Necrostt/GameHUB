@@ -58,10 +58,10 @@ class settingsViewController: UIViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let gameVC = segue.destination as? gameViewController else {return}
-        gameVC.numberOfPlayers = self.diceGameManager._playerNumber
-        gameVC.dicesToPlay = self.diceGameManager._dicesToPlay ?? 0
-        gameVC.roundsToPlay = self.diceGameManager._roundsToPlay ?? 0
+        guard let gameViewController = segue.destination as? gameViewController else {return}
+        gameViewController.numberOfPlayers = self.diceGameManager._playerNumber
+        gameViewController.dicesToPlay = self.diceGameManager._dicesToPlay ?? 0
+        gameViewController.roundsToPlay = self.diceGameManager._roundsToPlay ?? 0
     }
     
    

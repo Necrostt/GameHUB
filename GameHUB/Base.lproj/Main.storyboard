@@ -267,7 +267,7 @@
         <!--gameViewCotroller-->
         <scene sceneID="0cE-i7-WmT">
             <objects>
-                <viewController storyboardIdentifier="gameView" title="gameViewCotroller" id="QKN-1i-Xdx" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="gameView" title="gameViewCotroller" id="QKN-1i-Xdx" customClass="gameViewController" customModule="GameHUB" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nbe-rT-vMJ">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -346,6 +346,9 @@
                                         <integer key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="throwDiceButton:" destination="QKN-1i-Xdx" eventType="touchUpInside" id="J8Y-uA-thS"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="dzT-V3-V2i"/>
@@ -367,6 +370,16 @@
                             <constraint firstAttribute="trailing" secondItem="cPc-Sk-mIR" secondAttribute="trailing" id="vw0-aB-TaJ"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="leftImageStack" destination="3Lv-eE-95K" id="7t8-mQ-Yej"/>
+                        <outlet property="rightImageStack" destination="Hix-qq-Yra" id="nnD-ZU-3BM"/>
+                        <outletCollection property="leftImageViews" destination="jmf-ei-Hg5" collectionClass="NSMutableArray" id="s1M-c8-JYh"/>
+                        <outletCollection property="leftImageViews" destination="SJ2-Qk-Kgi" collectionClass="NSMutableArray" id="VQk-rM-Rdj"/>
+                        <outletCollection property="leftImageViews" destination="SlE-pY-qJd" collectionClass="NSMutableArray" id="NGX-l0-yD1"/>
+                        <outletCollection property="rightImageViews" destination="jcq-LG-FV5" collectionClass="NSMutableArray" id="kff-Q9-rwe"/>
+                        <outletCollection property="rightImageViews" destination="CRc-ig-djm" collectionClass="NSMutableArray" id="H4O-Ub-ERz"/>
+                        <outletCollection property="rightImageViews" destination="v0v-UC-cbx" collectionClass="NSMutableArray" id="JkX-E5-fwu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RI6-CS-kDn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
