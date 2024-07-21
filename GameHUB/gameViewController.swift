@@ -13,7 +13,7 @@ class gameViewController: UIViewController {
     
     
     private var diceGameManager = DiceGameManager()
-    private var playerList: [Int] = []
+    var playerList: [Int] = []
     
     var numberOfPlayers: Int {
         get {
@@ -54,6 +54,10 @@ class gameViewController: UIViewController {
         showRoundsToPlay()
         showPlayerToPlay()
         hideImageStacks()
+        
+        showRoundsToPlay(roundNumber: diceGameManager.dicesToPlay)
+        showPlayerToPlay(playerNumber: diceGameManager.playerNumber)
+        createPlayerList()
        
         
     }
@@ -75,6 +79,10 @@ class gameViewController: UIViewController {
         case 0:
             leftImageStack.isHidden = true
             rightImageStack.isHidden = true
+        case 1:
+            leftImageStack.isHidden = true
+            rightImageViews[0].isHidden = true
+            rightImageViews[2].isHidden = true
         case 2:
             leftImageStack.isHidden = true
             rightImageViews[1].isHidden = true
@@ -102,19 +110,39 @@ class gameViewController: UIViewController {
         leftImageStack.isHidden = true
         rightImageStack.isHidden = true
     }
-    func showRoundsToPlay(){
-        roundsLabel.text = "Rounds: \(diceGameManager.roundsToPlay)"
+    func showRoundsToPlay(roundNumber: Int = 0){
+        roundsLabel.text = "Rounds: \(roundNumber)"
     }
     
-    func showPlayerToPlay(){
-        playerLabel.text = "Jogador: \(diceGameManager.playerNumber)"
+    func showPlayerToPlay(playerNumber: Int = 0){
+        playerLabel.text = "Jogador: \(playerNumber)"
+    }
+    
+    func createPlayerList(){
+        for number in 1...diceGameManager.playerNumber{
+            playerList.append(number)
+        }
+    }
+    
+    func updateInGameRemainingRounds(){
+        if diceGameManager.roundsToPlay > 0 {
+                   diceGameManager.roundsToPlay -= 1
+                   showRoundsToPlay(roundNumber: diceGameManager.roundsToPlay)
+        } else {
+            return
+        }
     }
     
     
     @IBAction func throwDiceButton(_ sender: UIButton) {
         
-        checkStackViewHiddenState()
-        setDicesToAppear()
+        if diceGameManager.roundsToPlay > 0 {
+                   checkStackViewHiddenState()
+                   setDicesToAppear()
+                   updateInGameRemainingRounds()
+        } else {
+            
+        }
     }
     
     

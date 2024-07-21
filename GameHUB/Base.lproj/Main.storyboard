@@ -348,7 +348,7 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jjw-rP-ARt">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" role="primary" translatesAutoresizingMaskIntoConstraints="NO" id="jjw-rP-ARt">
                                 <rect key="frame" x="20" y="710" width="353" height="80"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
@@ -366,6 +366,7 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="throwDiceButton:" destination="QKN-1i-Xdx" eventType="touchUpInside" id="J8Y-uA-thS"/>
+                                    <segue destination="8sE-4K-se5" kind="presentation" modalPresentationStyle="fullScreen" id="dxE-4q-maQ"/>
                                 </connections>
                             </button>
                         </subviews>
