@@ -38,8 +38,8 @@ class settingsViewController: UIViewController {
         let optionClosure = { (action: UIAction) in
                 print("Pop-up action")
 //            armazena a seleção do usuario numa variavel para que a info seja enviada para a próxima ViewController
-            self._playerNumber = Int(action.title) ?? 0
-            print(self._playerNumber)
+            self.diceGameManager._playerNumber = Int(action.title) ?? 0
+            print(self.diceGameManager._playerNumber)
             }
 //            Popula o menu com as opções desejadas
             playerNumberSelect.menu = UIMenu(children: [
