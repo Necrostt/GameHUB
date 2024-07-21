@@ -255,7 +255,7 @@
                     <connections>
                         <outlet property="diceNumberImageView" destination="1MV-9L-Grq" id="vkM-Mi-9fi"/>
                         <outlet property="playButton" destination="cHf-EA-7j8" id="fcT-1g-mwL"/>
-                        <outlet property="playerNumberSelect" destination="WHm-cI-oeM" id="ppF-Dd-QkS"/>
+                        <outlet property="playerNumberSelect" destination="WHm-cI-oeM" id="Cyz-VL-NWL"/>
                         <outlet property="roundNumberImageView" destination="wNw-eB-hdR" id="0HL-mQ-qgb"/>
                         <outlet property="settingsButton" destination="tFZ-7j-Gev" id="GCo-Wx-KWW"/>
                     </connections>
