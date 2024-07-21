@@ -2,6 +2,9 @@ import UIKit
 
 class gameViewController: UIViewController {
     
+    
+    @IBOutlet weak var roundsLabel: UILabel!
+    @IBOutlet weak var playerLabel: UILabel!
     @IBOutlet weak var leftImageStack: UIStackView!
     @IBOutlet weak var rightImageStack: UIStackView!
     

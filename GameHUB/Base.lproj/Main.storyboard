@@ -278,23 +278,41 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cPc-Sk-mIR" userLabel="RedView">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="100"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jogador XX" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RjL-xg-ibI">
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Ea4-Hj-dHR" userLabel="LabelStack">
                                         <rect key="frame" x="0.0" y="55" width="393" height="30"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jogador XX" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RjL-xg-ibI">
+                                                <rect key="frame" x="0.0" y="0.0" width="194" height="30"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="aEF-G7-6BE"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rodada XX" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rgA-mB-QM1">
+                                                <rect key="frame" x="199" y="0.0" width="194" height="30"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="xCH-9Y-ok9"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                                <color key="textColor" name="ButtonRed"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="aEF-G7-6BE"/>
+                                            <constraint firstAttribute="height" constant="30" id="CLm-uT-htd"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
-                                        <color key="textColor" name="ButtonRed"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    </stackView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="RjL-xg-ibI" secondAttribute="bottom" constant="15" id="AZl-m4-0FA"/>
-                                    <constraint firstItem="RjL-xg-ibI" firstAttribute="leading" secondItem="cPc-Sk-mIR" secondAttribute="leading" id="Q2S-7K-bdm"/>
+                                    <constraint firstItem="Ea4-Hj-dHR" firstAttribute="leading" secondItem="cPc-Sk-mIR" secondAttribute="leading" id="Abw-FL-z1K"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ea4-Hj-dHR" secondAttribute="trailing" id="c4V-26-pRp"/>
+                                    <constraint firstAttribute="bottom" secondItem="Ea4-Hj-dHR" secondAttribute="bottom" constant="15" id="l8r-nc-HhR"/>
                                     <constraint firstAttribute="height" constant="100" id="qpf-bO-oGT"/>
-                                    <constraint firstAttribute="trailing" secondItem="RjL-xg-ibI" secondAttribute="trailing" id="yRE-Hr-Il9"/>
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="J81-wj-BWf" userLabel="containerStack">
@@ -372,7 +390,9 @@
                     </view>
                     <connections>
                         <outlet property="leftImageStack" destination="3Lv-eE-95K" id="7t8-mQ-Yej"/>
+                        <outlet property="playerLabel" destination="RjL-xg-ibI" id="bth-VG-13m"/>
                         <outlet property="rightImageStack" destination="Hix-qq-Yra" id="nnD-ZU-3BM"/>
+                        <outlet property="roundsLabel" destination="rgA-mB-QM1" id="pU5-2O-ksD"/>
                         <outletCollection property="leftImageViews" destination="jmf-ei-Hg5" collectionClass="NSMutableArray" id="s1M-c8-JYh"/>
                         <outletCollection property="leftImageViews" destination="SJ2-Qk-Kgi" collectionClass="NSMutableArray" id="VQk-rM-Rdj"/>
                         <outletCollection property="leftImageViews" destination="SlE-pY-qJd" collectionClass="NSMutableArray" id="NGX-l0-yD1"/>
