@@ -61,6 +61,7 @@ class settingsViewController: UIViewController {
         gameViewController.numberOfPlayers = self.diceGameManager.playerNumber
         gameViewController.dicesToPlay = self.diceGameManager.dicesToPlay
         gameViewController.roundsToPlay = self.diceGameManager.roundsToPlay
+        gameViewController.totalRounds = self.diceGameManager.roundsToPlay
     }
     
    

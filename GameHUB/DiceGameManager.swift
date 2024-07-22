@@ -5,6 +5,8 @@ struct DiceGameManager {
     private var _playerNumber: Int = 2
     private var _dicesToPlay: Int?
     private var _roundsToPlay: Int?
+    var playerMap: [Int:Int?] = [:]
+    
     
 //    variaveis Get e Set para lidar com as variaveis privates, lidando tambem com os unwraps dos optionals
     var playerNumber: Int {
@@ -45,6 +47,8 @@ struct DiceGameManager {
             let dice = DiceGame()
             return dice.throwDice()
         }
-    
+    mutating func updateRoundsToPlay(rounds: Int){
+        roundsToPlay = rounds
+    }
     
 }

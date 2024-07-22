@@ -13,9 +13,12 @@ class gameViewController: UIViewController {
     
     
     private var diceGameManager = DiceGameManager()
-    
+//    cria uma lista com cada jogador de acordo com o numero de jogadores previamente definido
     var playerList: [Int] = []
-    var playerIndex: Int = 0
+//    armazena o index do atual jogador em jogo
+    var currentPlayerIndex: Int = 0
+    var totalRounds: Int = 0
+    
     
     var numberOfPlayers: Int {
         get {
@@ -42,7 +45,7 @@ class gameViewController: UIViewController {
         }
     }
     
-    
+
     
     
     override func viewDidLoad() {
@@ -57,9 +60,10 @@ class gameViewController: UIViewController {
         showPlayerToPlay()
         hideImageStacks()
         
-        showRoundsToPlay(roundNumber: diceGameManager.dicesToPlay)
-        showPlayerToPlay(playerNumber: diceGameManager.playerNumber)
+        showRoundsToPlay(roundNumber: roundsToPlay)
         createPlayerList()
+        showPlayerToPlay(playerNumber: playerList[0])
+        
         
         
     }
@@ -77,7 +81,7 @@ class gameViewController: UIViewController {
     
     //    metodo controla o numero de ImageViews que aparecem baseado no numero de dados a serem jogados
     func setDicesToAppear(){
-        switch diceGameManager.dicesToPlay {
+        switch dicesToPlay {
         case 0:
             leftImageStack.isHidden = true
             rightImageStack.isHidden = true
@@ -120,43 +124,74 @@ class gameViewController: UIViewController {
     
     //    mostra a player label com o jogador a jogar no momento
     func showPlayerToPlay(playerNumber: Int = 0){
+        
         playerLabel.text = "Jogador: \(playerNumber)"
     }
     //    cria uma lista com os jogadores a jogar
     func createPlayerList(){
-        for number in 1...diceGameManager.playerNumber{
+        for number in 1...numberOfPlayers{
             playerList.append(number)
+            print(playerList)
         }
     }
     
     
     
     func updateGameLabels() {
-        let currentPlayer = playerList[playerIndex]
+//        usa o index do atual jogador em jogo para mostrar na tela o seu respectivo numero
+        let currentPlayer = playerList[currentPlayerIndex]
         showPlayerToPlay(playerNumber: currentPlayer)
-        showRoundsToPlay(roundNumber: diceGameManager.roundsToPlay)
+        showRoundsToPlay(roundNumber: roundsToPlay)
     }
     
     
     func resetGame() {
-        playerIndex = 0
-        diceGameManager.roundsToPlay = roundsToPlay
+        currentPlayerIndex = 0
+        roundsToPlay = diceGameManager.roundsToPlay
         hideImageStacks()
         updateGameLabels()
     }
     
+    func updateRoundsToPlayLabel(rounds: Int){
+        var showRound = rounds
+        if showRound > 0 {
+            showRound -= 1
+            showRoundsToPlay(roundNumber: rounds)
+            
+        }
+        
+    }
     
     @IBAction func throwDiceButton(_ sender: UIButton) {
+//       var totalRounds = roundsToPlay
+//        let fixedTotalRounds = totalRounds
+        var control = 0
         
-        if diceGameManager.roundsToPlay > 0 {
-            checkStackViewHiddenState()
-            setDicesToAppear()
-            diceGameManager.roundsToPlay -= 1
-            showRoundsToPlay(roundNumber: diceGameManager.roundsToPlay)
-        } else {
+        if roundsToPlay >= 0 {
+            roundsToPlay -= 1
+            showRoundsToPlay(roundNumber: roundsToPlay)
+            
+        }
+        if roundsToPlay == -1 {
+            if currentPlayerIndex < playerList.count - 1{
+                print(playerList.count)
+                print(currentPlayerIndex)
+                currentPlayerIndex += 1
+                showPlayerToPlay(playerNumber: playerList[currentPlayerIndex])
+                showRoundsToPlay(roundNumber: totalRounds)
+                roundsToPlay = totalRounds
+                print(control)
+            } else if currentPlayerIndex == playerList.count - 1, roundsToPlay == -1 {
+                control = 1
+                showRoundsToPlay(roundNumber: 0)
+            }
+            
+            if control == 1 {
                 performSegue(withIdentifier: "highScoreSegue", sender: nil)
             }
+        }
         
+                
         
         
     }
