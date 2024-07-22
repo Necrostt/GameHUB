@@ -90,6 +90,28 @@ class gameViewController: UIViewController {
         return throwResult
     }
     
+    func selectImageViewToUpdate(){
+        var playerResults: [Int] = []
+        let diceViews: Set = [singleImageView,
+                              rightImageViews[0],
+                              rightImageViews[1],
+                              rightImageViews[2],
+                              leftImageViews[0],
+                              leftImageViews[1],
+                              leftImageViews[2]]
+        
+        for view in diceViews{
+            playerResults.append(updateDiceImageView(this: view ?? singleImageView))
+        }
+        print(playerResults.description)
+        
+    }
+    func savePlayerResult(results: Int) -> [Int] {
+        var playerResults: [Int] = []
+        playerResults.append(results)
+        return playerResults
+    }
+    
     func setDicesToAppear(){
         switch dicesToPlay {
         case 0:
@@ -172,6 +194,7 @@ class gameViewController: UIViewController {
         
     }
     
+    
     @IBAction func throwDiceButton(_ sender: UIButton) {
 //       var totalRounds = roundsToPlay
 //        let fixedTotalRounds = totalRounds
@@ -183,6 +206,7 @@ class gameViewController: UIViewController {
         if roundsToPlay >= 0 {
             roundsToPlay -= 1
             showRoundsToPlay(roundNumber: roundsToPlay)
+            selectImageViewToUpdate()
             
         }
         if roundsToPlay == -1 {
