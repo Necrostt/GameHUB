@@ -275,6 +275,9 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="verde" translatesAutoresizingMaskIntoConstraints="NO" id="qkQ-r3-6yC">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                             </imageView>
+                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dado3" translatesAutoresizingMaskIntoConstraints="NO" id="VFp-w5-LDU" userLabel="singleImageView">
+                                <rect key="frame" x="100" y="300" width="193" height="202"/>
+                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cPc-Sk-mIR" userLabel="RedView">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="100"/>
                                 <subviews>
@@ -375,6 +378,7 @@
                             <constraint firstItem="jjw-rP-ARt" firstAttribute="leading" secondItem="dzT-V3-V2i" secondAttribute="leading" constant="20" id="0xR-k8-kGZ"/>
                             <constraint firstAttribute="trailing" secondItem="qkQ-r3-6yC" secondAttribute="trailing" id="1au-mD-sJF"/>
                             <constraint firstItem="dzT-V3-V2i" firstAttribute="trailing" secondItem="J81-wj-BWf" secondAttribute="trailing" constant="20" id="1uA-kQ-TYM"/>
+                            <constraint firstItem="dzT-V3-V2i" firstAttribute="bottom" secondItem="VFp-w5-LDU" secondAttribute="bottom" constant="350" id="E0j-Pc-dLj"/>
                             <constraint firstItem="qkQ-r3-6yC" firstAttribute="top" secondItem="nbe-rT-vMJ" secondAttribute="top" id="HDE-SK-vNF"/>
                             <constraint firstItem="cPc-Sk-mIR" firstAttribute="leading" secondItem="nbe-rT-vMJ" secondAttribute="leading" id="Je8-vy-EyU"/>
                             <constraint firstItem="J81-wj-BWf" firstAttribute="leading" secondItem="dzT-V3-V2i" secondAttribute="leading" constant="20" id="L1c-KX-npi"/>
@@ -382,6 +386,9 @@
                             <constraint firstItem="jjw-rP-ARt" firstAttribute="top" secondItem="J81-wj-BWf" secondAttribute="bottom" constant="30" id="Szm-4Q-XIX"/>
                             <constraint firstItem="dzT-V3-V2i" firstAttribute="bottom" secondItem="jjw-rP-ARt" secondAttribute="bottom" constant="62" id="VLZ-gG-IlI"/>
                             <constraint firstItem="cPc-Sk-mIR" firstAttribute="top" secondItem="nbe-rT-vMJ" secondAttribute="top" id="a5t-uD-ebA"/>
+                            <constraint firstItem="VFp-w5-LDU" firstAttribute="top" secondItem="dzT-V3-V2i" secondAttribute="top" constant="300" id="doA-wp-yIy"/>
+                            <constraint firstItem="dzT-V3-V2i" firstAttribute="trailing" secondItem="VFp-w5-LDU" secondAttribute="trailing" constant="100" id="fdt-VE-FQ2"/>
+                            <constraint firstItem="VFp-w5-LDU" firstAttribute="leading" secondItem="dzT-V3-V2i" secondAttribute="leading" constant="100" id="i70-xt-L3r"/>
                             <constraint firstItem="qkQ-r3-6yC" firstAttribute="leading" secondItem="nbe-rT-vMJ" secondAttribute="leading" id="iGV-ia-cub"/>
                             <constraint firstItem="dzT-V3-V2i" firstAttribute="trailing" secondItem="jjw-rP-ARt" secondAttribute="trailing" constant="20" id="u4v-ec-TqW"/>
                             <constraint firstAttribute="bottom" secondItem="qkQ-r3-6yC" secondAttribute="bottom" id="uHT-lY-i0W"/>
@@ -393,6 +400,7 @@
                         <outlet property="playerLabel" destination="RjL-xg-ibI" id="bth-VG-13m"/>
                         <outlet property="rightImageStack" destination="Hix-qq-Yra" id="nnD-ZU-3BM"/>
                         <outlet property="roundsLabel" destination="rgA-mB-QM1" id="pU5-2O-ksD"/>
+                        <outlet property="singleImageView" destination="VFp-w5-LDU" id="84u-jF-JNm"/>
                         <outletCollection property="leftImageViews" destination="jmf-ei-Hg5" collectionClass="NSMutableArray" id="s1M-c8-JYh"/>
                         <outletCollection property="leftImageViews" destination="SJ2-Qk-Kgi" collectionClass="NSMutableArray" id="VQk-rM-Rdj"/>
                         <outletCollection property="leftImageViews" destination="SlE-pY-qJd" collectionClass="NSMutableArray" id="NGX-l0-yD1"/>

@@ -8,6 +8,7 @@ class gameViewController: UIViewController {
     @IBOutlet weak var leftImageStack: UIStackView!
     @IBOutlet weak var rightImageStack: UIStackView!
     
+    @IBOutlet weak var singleImageView: UIImageView!
     @IBOutlet var leftImageViews: [UIImageView]!
     @IBOutlet var rightImageViews: [UIImageView]!
     
@@ -59,10 +60,10 @@ class gameViewController: UIViewController {
         showRoundsToPlay()
         showPlayerToPlay()
         hideImageStacks()
-        
         showRoundsToPlay(roundNumber: roundsToPlay)
         createPlayerList()
         showPlayerToPlay(playerNumber: playerList[0])
+        setDicesToAppear()
         
         
         
@@ -80,6 +81,15 @@ class gameViewController: UIViewController {
      */
     
     //    metodo controla o numero de ImageViews que aparecem baseado no numero de dados a serem jogados
+    func updateDiceImageView(this imageView: UIImageView) -> Int{
+        let throwResult = self.diceGameManager.diceSelector()
+        imageView.image = UIImage(named: "dado" + String(throwResult))
+        
+//        Retorna o resultado do lançamento do dado para popular os parâmetros do jogo,
+//        numero de dados e rounds a serem jogados
+        return throwResult
+    }
+    
     func setDicesToAppear(){
         switch dicesToPlay {
         case 0:
@@ -87,8 +97,8 @@ class gameViewController: UIViewController {
             rightImageStack.isHidden = true
         case 1:
             leftImageStack.isHidden = true
-            rightImageViews[0].isHidden = true
-            rightImageViews[2].isHidden = true
+            rightImageStack.isHidden = true
+            singleImageView.isHidden = false
         case 2:
             leftImageStack.isHidden = true
             rightImageViews[1].isHidden = true
@@ -166,6 +176,9 @@ class gameViewController: UIViewController {
 //       var totalRounds = roundsToPlay
 //        let fixedTotalRounds = totalRounds
         var control = 0
+        checkStackViewHiddenState()
+        setDicesToAppear()
+        
         
         if roundsToPlay >= 0 {
             roundsToPlay -= 1
